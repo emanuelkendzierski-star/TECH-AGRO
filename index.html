@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <link rel="icon" type="image/png" href="IMAGENS/icone2.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECH AGRO</title>
+    <style>
+
+        /*FUNDO DO SITE*/
+
+        body {
+            background-color: #3a3d37e8;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+        flex-direction: column;
+    overflow-x: hidden;}
+
+
+               /* CONFIG DAS DIVISÕES */
+
+               /*ESTILO PRINCIPAL DO SITE*/
+
+.CABEÇALHO {
+    background-color: rgba(24, 85, 9, 0.7);
+    background-size: cover;
+    background-position: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 3px solid rgb(23, 114, 26);
+}
+
+.LINHA {
+    height: 6px;
+    background-color: #17721a;
+    margin: 1px 0;
+    border-top: 3px solid rgb(23, 114, 26);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.LINHA:hover {
+    opacity: 1;
+}
+
+/*INTERAÇÕES*/
+
+/*BOTÕES*/
+
+.MASCOTE {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 80px;
+    height: auto;
+    display: inline-block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.MASCOTE img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.MASCOTE:hover {
+    transform: translateY(-50%) scale(1.1);
+    opacity: 0.9;}
+
+.MASCOTE:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.BARRA-CONFIG {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 80px;
+    height: auto;
+    display: inline-block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.BARRA-CONFIG img {
+    display: block;
+    width: 100%;
+    height: auto;  
+}
+
+.BARRA-CONFIG:hover {
+    transform: translateY(-50%) scale(1.1);
+    opacity: 0.9;
+}
+
+.BARRA-CONFIG:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.CONFIG-PAINEL {
+    position: absolute;
+    right: 20px;
+    top: 130px;
+    width: min(90vw, 300px);
+    background-color: rgba(15, 34, 14, 0.95);
+    border: 2px solid #71c24b;
+    border-radius: 18px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.CONFIG-PAINEL.hide {
+    display: none;
+}
+
+.CONFIG-PAINEL h2 {
+    margin: 0;
+    color: #dfeec1;
+    font-size: 1.1rem;
+}
+
+.CONFIG-PAINEL button {
+    background: #1f5d1f;
+    border: 1px solid #8ab4f8;
+    border-radius: 999px;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 10px 12px;
+    text-align: left;
+}
+
+.CONFIG-PAINEL button:hover {
+    background: #2d7a2f;
+}
+
+body.light-theme {
+    background-color: #f5f6f4;
+    color: #1f2920;
+}
+
+body.light-theme .TEXTO1 {
+    background-color: #ffffff;
+    color: #1f2920;
+    border-color: rgba(133, 133, 133, 0.28);
+}
+
+body.light-theme .CABEÇALHO {
+    background-color: rgba(237, 242, 227, 0.85);
+    color: #1f2920;
+}
+
+body.light-theme .CONFIG-PAINEL {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-color: #1a7f2e;
+}
+
+       /*TEXTOS*/
+.TEXTO1 {
+    background-color: rgb(85, 85, 85);
+    border: 2px solid rgba(231, 218, 218, 0.16);
+    outline: 1px solid rgba(117, 23, 23, 0.04);
+    box-sizing: border-box;
+    width: min(95%, 950px);
+    max-width: 950px;
+    min-height: 220px;
+    margin: 40px auto;
+    padding: 40px 32px;
+    border-radius: 24px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.24);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.TEXTO1 h2 {
+    color: #ece2e2;
+    font-size: 2.2rem;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.TEXTO1 p {
+    color: #bfffa1;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-family: sans-serif;
+    margin-top: 20px;
+}
+
+    </style>
+
+</head>
+<body>
+     <!-- ESSA DIV REUNE A MAIORIA DAS PRINCIPAIS, PARA FICAR MAIS FACIL -->
+
+
+    <div class="DIVS_PRINCIPAIS">
+        <div class="DESINING">
+            <div class="CABEÇALHO">
+                <h1>TECH AGRO</h1>
+
+                <button type="button" id="pia_GPT" class="MASCOTE">
+                    <img src="IMAGENS/PIA-GPT.png" alt="MASCOTE SITE">
+                </button>
+                <button type="button" id="barra-config" class="BARRA-CONFIG">
+                    <img src="IMAGENS/BARRA-CONFIGS.png" alt="BARRA DAS CONFIGURAÇÕES">
+                </button>
+                <div class="CONFIG-PAINEL hide" id="configPanel">
+                    <h2>Configurações</h2>
+                    <button type="button" data-action="toggleTheme">Alternar Tema</button>
+                    <button type="button" data-action="increaseFont">Aumentar Fonte</button>
+                    <button type="button" data-action="decreaseFont">Diminuir Fonte</button>
+                    <button type="button" data-action="resetSettings">Restaurar Padrão</button>
+                </div>
+                <div class="BOTÕES">
+                </div>
+            </div>
+        </div>
+    </div>
+
+                 <div class="TEXTO1">
+                    <h2>O QUE É O TECH AGRO?🌿</h2>
+                    <p>Uma Plataforma para auxiliar os produtores rurais, e informar sobre o assunto.
+                     Ajudando a melhorar a administração correta e com sustentabilidade.🧩
+                    </p>
+
+        <h2>FUTURO DO AGRO SUSTENTÁVEL E TECNOLOGIAS🤖</h2>
+<h3>Tecnologias de Impacto</h3>
+<p>
+    De acordo com estudos da EMBRAPA (2024), a transformação digital no campo 
+    é o principal motor para a sustentabilidade. O uso de sensores de solo, 
+    drones de monitoramento e sistemas automatizados permite produzir mais 
+    alimentos reduzindo drasticamente o uso de água e insumos químicos.
+</p>
+<p>
+    <em>Fonte: "Visão 2030: O Futuro da Agricultura Brasileira", EMBRAPA.</em>
+</p>
+
+<h3>Irrigação de Precisão</h3>
+<p>
+    Segundo notas técnicas da EMBRAPA Solo e Água, a automação do manejo de irrigação baseada em sensores de umidade evita o desperdício em até 40%. Essa tecnologia garante a segurança hídrica da lavoura sem esgotar os mananciais locais.
+</p>
+<p>
+    <em>Fonte: "Manejo Inteligente de Recursos Hídricos", EMBRAPA.</em>
+</p>
+
+
+<h3>Bioinsumos e Solo Vivo</h3>
+<p>
+    Pesquisas da EMBRAPA Soja apontam que o uso de microrganismos e bioinsumos reduz a dependência de fertilizantes químicos sintéticos. Isso protege os ecossistemas locais, mantém o solo rico em nutrientes e reduz as emissões de carbono.
+</p>
+<p>
+    <em>Fonte: "Tecnologia de Bioinsumos na Agricultura", EMBRAPA.</em>
+</p>
+                   <div class="imagem agro">
+                    <img src="IMAGENS/agricultura1.jpg" alt="IMAGEM AGRO" style="width: 100%; max-width: 400px; margin: 20px auto; display: block;"> 
+                   </div>
+                   <h5>Site Desenvolvido por: EMANUEL KENDZIERSKI</h5>
+                
+                </div>
+                
+                <!--LIBRAS-->
+
+                <div vw class="enabled">
+  <div vw-access-button class="active"></div>
+  <div vw-plugin-wrapper>
+    <div class="vw-plugin-top-wrapper"></div>
+  </div>
+</div>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+  new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+
+<!--IA  -->
+
+<button onclick="abrirgemini()" style="position: fixed; bottom: 100px; right: 20px; z-index: 999999; padding: 12px 18px; background: #059e7d; color: white; border: 2px solid #8ab4f8; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0px 4px 15px rgba(0,0,0,0.4); font-family: sans-serif; display: flex; align-items: center; gap: 8px;">
+  💎 Abrir Gemini/ PIÁ-GPT 
+</button>
+
+<script>
+function piaaa() {
+  window.open("https://gemini.google.com", "_blank");
+}
+
+function abrirgemini() {
+  window.open("https://gemini.google.com", "_blank");
+
+}
+
+</script>
+
+<!--CONFIGS-->
+
+<script>
+
+function handleConfigAction(action) {
+  const texto = document.querySelector('.TEXTO1');
+  if (!texto) return;
+
+  if (action === 'toggleTheme') {
+    document.body.classList.toggle('light-theme');
+    return;
+  }
+
+  if (action === 'increaseFont') {
+    adjustFontSize(1);
+    return;
+  }
+
+  if (action === 'decreaseFont') {
+    adjustFontSize(-1);
+    return;
+  }
+
+  if (action === 'resetSettings') {
+    document.body.classList.remove('light-theme');
+    document.documentElement.style.fontSize = '16px';
+    const panel = document.getElementById('configPanel');
+    if (panel) panel.classList.add('hide');
+    return;
+  }
+}
+
+function adjustFontSize(delta) {
+  const root = document.documentElement;
+  const current = parseFloat(window.getComputedStyle(root).fontSize) || 16;
+  const next = Math.min(24, Math.max(12, current + delta));
+  root.style.fontSize = next + 'px';
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  const configBtn = document.getElementById('barra-config');
+  const panel = document.getElementById('configPanel');
+  const piaBtn = document.getElementById('pia_GPT');
+  const actions = document.querySelectorAll('#configPanel button[data-action]');
+
+  if (configBtn && panel) {
+    configBtn.addEventListener('click', function () {
+      panel.classList.toggle('hide');
+    });
+  }
+
+  actions.forEach(function (button) {
+    button.addEventListener('click', function () {
+      handleConfigAction(button.getAttribute('data-action'));
+    });
+  });
+
+  if (piaBtn) {
+    piaBtn.addEventListener('click', piaaa);
+  }
+});
+</script>
+
+</body>
+</html>
